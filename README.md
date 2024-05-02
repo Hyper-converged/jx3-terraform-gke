@@ -1,18 +1,18 @@
 # Google Terraform Quickstart template
 
-Use this template to easily create a new Git Repository for managing Jenkins X cloud infrastructure needs.
+使用此模板轻松创建新的 Git 存储库，以管理 Jenkins X 云基础设施需求。
 
-We recommend using Terraform to manange the infrastructure needed to run Jenkins X.  There are a number of cloud resources which may need to be created such as:
+我们建议使用 Terraform 来管理运行 Jenkins X 所需的基础设施。可能需要创建一些云资源，例如：
 
 - Kubernetes cluster
-- Storage buckets for long term storage of logs
-- IAM Bindings to manage permissions for applications using cloud resources
+- Storage buckets 用于长期存储日志
+- IAM Bindings 用于管理使用云资源的应用程序权限
 
-Jenkins X likes to use GitOps to manage the lifecycle of both infrastructure and cluster resources.  This requires two Git Repositories to achieve this:
-- **Infrastructure git repository**: infrastructure resources will be managed by Terraform and will keep resources in sync.
-- **Cluster git repository**: the Kubernetes specific cluster resources will be managed by Jenkins X and keep resources in sync.
+Jenkins X 喜欢使用 GitOps 来管理基础设施和集群资源的生命周期。这需要两个 Git 存储库来实现：
+- **Infrastructure git repository**: 基础设施资源将由 Terraform 管理，并保持资源同步
+- **Cluster git repository**: Kubernetes 特定的集群资源将由 Jenkins X 管理，并保持资源同步。
 
-# Prerequisites
+# 先决条件
 
 - A Git organisation that will be used to create the GitOps repositories used for Jenkins X below.
   e.g. https://github.com/organizations/plan.
@@ -39,16 +39,17 @@ gcloud services enable container.googleapis.com
 
 We use 2 git repositories:
 
-* **Infrastructure** git repository for the Terraform configuration to setup/upgrade/modify your cloud infrastructure (kubernetes cluster, IAM accounts, IAM roles, buckets etc)
-* **Cluster** git repository to contain the `helmfile.yaml` file to define the helm charts to deploy in your cluster
+* **Infrastructure** 用于 Terraform 配置的 Git 存储库，用于设置/升级/修改您的云基础设施（Kubernetes 集群、IAM 账户、IAM 角色、存储桶等）
+  
+* **Cluster** 包含 `helmfile.yaml` 文件的 Git 存储库，用于定义要在您的集群中部署的 Helm charts
 
-We use separate git repositories since the infrastructure tends to change rarely; whereas the cluster git repository changes alot (every time you add a new quickstart, import a project, release a project etc).
+我们使用独立的 git 仓库，因为基础架构往往很少更改；而集群 git 仓库却经常更改（每次添加新的快速启动、导入项目、发布项目等）。
 
-Often different teams look after infrastructure; or you may use tools like Terraform Cloud to process changes to infrastructure & review changes to infrastructure more closely than promotion of applications.
+通常由不同的团队负责基础架构；或者您可以使用 Terraform Cloud 等工具来处理基础架构的变更，并对基础架构的变更进行比推广应用更严格的审查。
 
 # Getting started
 
-__Note: remember to create the Git repositories below in your Git Organisation rather than your personal Git account else this will lead to issues with ChatOps and automated registering of webhooks__.
+__Note:请记住在您的 Git 组织而不是您的个人 Git 账户中创建下面的 Git 仓库，否则会导致 ChatOps 和自动注册 webhooks___ 的问题。
 
 1. Create an **Infrastructure** git repo from this GitHub Template https://github.com/jx3-gitops-repositories/jx3-terraform-gke/generate.  If you are following from the Jenkins X website then this initial step may have already happened.
 

@@ -57,7 +57,7 @@ __Note:请记住在您的 Git 组织而不是您的个人 Git 账户中创建下
 
 2. Create a **Cluster** git repository; choosing your desired secrets store, either Google Secret Manager or Vault:
     - __Google Secret Manager__: https://github.com/jx3-gitops-repositories/jx3-gke-gsm/generate 
-    __Note:__ If you choose Google Secret Manager, billing must be activated on your acccount!
+    __Note:__ 如果选择 Google Secret Manager，则必须在您的账户上激活计费！
     
 
     - __Vault__: https://github.com/jx3-gitops-repositories/jx3-gke-vault/generate
